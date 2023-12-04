@@ -1,0 +1,14 @@
+{
+    "name" : "harry",
+    "score" : 26,
+    "isArray" : true,
+    "isNull" : null,
+    "items" : ["dhh", "eje", "hdje"],
+    "myobj" :
+    {
+        "oname" : "harry",
+        "oage" : 23,
+        "issarr" : ["awws", "rft", "sdr"]
+    }
+}
+

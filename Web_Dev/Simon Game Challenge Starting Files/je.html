@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello</title>
+    <link rel="stylesheet" href="ab.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- to make website responsive-->
+    <style>
+      table,th,td{
+        border:1px solid black;
+        border-collapse:collapse;
+      }
+      th,td{
+        padding:5px;
+      }
+    </style>
+  </head>
+
+
+  <body>
+    <a style="color:brown; border:2px solid black;" href="https://www.google.com" target="_blank">kd</a>
+    <p>
+      hu
+    </p>
+    <img src="images/ab.png" style="width:102px;height:102px;">
+
+  <button>df </button>
+  <p>
+    To run the test, you'll be connected to Measurement Lab (M-Lab) and
+    your IP address will be shared with them and processed by them in accordance with their
+    privacy policy. M-Lab conducts the test and publicly publishes all test results to promote
+    Internet research. Published information includes your IP address and test results, but doesn’t
+     include any other information about you as an Internet user.
+
+  </p>
+<br />
+<!--<iframe src="https//www.google.com" name="iframe_a" height="200" width="300" title="Iframe Example"></iframe>  -->
+<iframe src="xyz.html" name="iframe_a" height="300px" width="70%" title="Iframe Example"></iframe>
+<p><a href="https://www.youtube.com" target="iframe_a">W3Schools.com</a></p>
+
+<p id="demo">JavaScript can change the style of an HTML element.</p>
+
+<script>
+function myFunction() {
+  document.getElementById("demo").style.fontSize = "25px";
+  document.getElementById("demo").style.color = "red";
+  document.getElementById("demo").style.backgroundColor = "yellow";
+}
+</script>
+
+<button  onclick="myFunction()">Click Me!</button>
+
+<p>The <strong>input type="color"</strong> is used for input fields that should contain a color.</p>
+
+<form action="/action_page.php">
+  <label for="favcolor">Select your favorite color:</label>
+  <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+  <input type="submit" value="Submit">
+</form>
+
+<br />
+<br /><br>
+<p>
+  this is the other form
+</p>
+<form action="/action_page.php">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
+  <input type="submit" value="Submit">
+</form>
+<br />
+<br>
+<!-- canvas element to draw graphics on page,
+After creating the rectangular canvas area, you must add a JavaScript to do the drawing.-->
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.moveTo(0,0);
+ctx.lineTo(200,100);
+ctx.stroke();
+</script>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.font = "30px Arial";
+ctx.fillText("Hello World",10,50);
+//ctx.strokeText("Hello World", 10, 50); also this can be used to change font size;
+</script>
+
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+
+<br />  <br>
+<p>
+  to play an youtube video
+</p>
+
+<iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+
+<br />
+<p>Add mute=1 after autoplay=1 to let your video start playing automatically (but muted).</p>
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
+</iframe>
+
+<br />
+<p>------------------------------------------------------------------------------------
+  This is an email link:
+  <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">
+  Send Mail</a>
+  </p>
+<br />
+<br>
+<p>Implmenting differnt types of tables</p>
+<h1>horizontal table</h1>
+<table style="width:80%">
+  <tr>
+    <th>Name</th>
+    <th colspan="2">Mobile</th>
+  </tr>
+  <tr>
+    <th>vinu</th>
+    <th>455</th>
+    <th>444</th>
+  </tr>
+</table>
+<br>
+<p>vertical table</p>
+<table style="width:70%">
+  <tr>
+    <th rowspan="2">name</th>
+    <td>sd</td>
+
+  </tr>
+  <tr>
+      <td>hff</td>
+  </tr>
+  <tr>
+    <th>phone</th>
+    <td>909</td>
+  </tr>
+
+</table>
+<br>
+<p>new kind of table</p>
+<table>
+  <tr>
+    <td><p>
+      This is a paragraph</p>
+    <p>
+      This is another paragraph
+    </p></td>
+
+    <td>This cells contains a table
+    <table>
+
+
+    <tr>
+      <td>A</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>D</td>
+    </tr>
+
+
+
+    </td>
+    </table>
+  </tr>
+  <tr>
+    <td><p>This cells contains a list</p>
+    <ul>
+      <li>apples</li>
+      <li>bananas</li>
+      <li>oranges</li>
+
+    </ul>
+
+  </td>
+  <td>
+    <h3>HELLO</h3>
+  </td>
+  </tr>
+
+</table>
+<br>
+<br>
+<p>unoredered lists diffent styles</p>
+<ul style="list-style-type:disc;"> <!-- circle , none  , square -->
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+<br>
+<h2>Ordered List with Numbers</h2>
+
+<ol type="1"> <!-- A , a , I ,i-->
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+<br>
+<br>
+<p>Menu for items </p>
+<br>
+<p style="color:red; backgroundColor:yellow"> Home  Navigation Next</p>
+
+
+  </body>
+</html>

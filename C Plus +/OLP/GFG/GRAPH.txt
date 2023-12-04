@@ -1,0 +1,21 @@
+GRAPH CREATION AND TREAVERESAL
+
+
+it can be created using Adjacency list and adjacency matrix
+
+BFS ::
+method1: create a BFS spanning tree and then take levelm order traversal
+
+method2: Exploration
+
+
+
+BFS - QUEUE
+
+DFS - STACK
+
+
+--------------------------------------------------------------------------------------------------
+Spanning Trees:
+
+Sub Grapsh

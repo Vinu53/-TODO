@@ -1,0 +1,115 @@
+one way::
+
+#include <iostream>
+using namespace std;
+
+class IBike
+{
+public:
+    virtual void IsBike() = 0;
+};
+
+class ICar
+{
+public:
+    virtual void Iscar() = 0;
+};
+
+class MarutiBike : public IBike
+{
+public:
+    void IsBike() override
+    {
+        cout << "Maruti bike" << endl;
+    }
+};
+
+class HondaBike : public IBike
+{
+public:
+    void IsBike() override
+    {
+        cout << "Honda bike" << endl;
+    }
+};
+
+class Maruticar : public ICar
+{
+public:
+    void Iscar() override
+    {
+        cout << "Maruti car" << endl;
+    }
+};
+
+class Hondacar : public ICar
+{
+public:
+    void Iscar() override
+    {
+        cout << "Honda car" << endl;
+    }
+};
+
+class IVehicle
+{
+public:
+    virtual ICar* createcar() = 0;
+    virtual IBike* createbike() = 0;
+};
+
+class Marutifactory : public IVehicle
+{
+public:
+    ICar* createcar() override
+    {
+        return new Maruticar();
+    }
+
+    IBike* createbike() override
+    {
+        return new MarutiBike();
+    }
+};
+
+class Hondafactory : public IVehicle
+{
+public:
+    ICar* createcar() override
+    {
+        return new Hondacar();
+    }
+
+    IBike* createbike() override
+    {
+        return new HondaBike();
+    }
+};
+
+int main()
+{
+    IVehicle* marutiFactory = new Marutifactory();
+    ICar* marutiCar = marutiFactory->createcar();
+    IBike* marutiBike = marutiFactory->createbike();
+
+    marutiCar->Iscar();    // Output: Maruti car
+    marutiBike->IsBike();  // Output: Maruti bike
+
+    IVehicle* hondaFactory = new Hondafactory();
+    ICar* hondaCar = hondaFactory->createcar();
+    IBike* hondaBike = hondaFactory->createbike();
+
+    hondaCar->Iscar();    // Output: Honda car
+    hondaBike->IsBike();  // Output: Honda bike
+
+    // Clean up memory
+    delete marutiCar;
+    delete marutiBike;
+    delete marutiFactory;
+    delete hondaCar;
+    delete hondaBike;
+    delete hondaFactory;
+
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

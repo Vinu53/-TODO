@@ -1,0 +1,135 @@
+#include <iostream>
+using namespace std;
+
+class IBike
+{
+    public:
+  virtual void IsBike() = 0;
+};
+
+class ICar
+{
+    public:
+  virtual void Iscar() = 0;
+};
+
+
+
+class MarutiBike: public IBike
+{
+    public:
+    void IsBike() override
+    {
+        cout<<"IS maruti bike"<<endl;
+    }
+};
+
+class HondaBike: public IBike
+{
+    public:
+    void IsBike() override
+    {
+        cout<<"IS honda bike"<<endl;
+    }
+};
+
+class Maruticar: public ICar
+{
+    public:
+    void Iscar() override
+    {
+        cout<<"IS maruti car"<<endl;
+    }
+};
+
+class Hondacar: public ICar
+{
+    public:
+    void Iscar() override
+    {
+        cout<<"IS honda car"<<endl;
+    }
+};
+
+class IVehicle
+{
+    public:
+    virtual ICar* createcar() = 0;
+    virtual IBike* createbike() = 0;
+};
+
+class Marutifactory:public IVehicle
+{
+    public:
+    ICar* createcar()
+    {
+        return new Maruticar();
+    }
+    
+    IBike* createbike()
+    {
+        return new MarutiBike();
+    }
+    
+};
+
+class Hondafactory:public IVehicle
+{
+    public:
+     ICar* createcar()
+    {
+        return new Hondacar();
+    }
+    
+    IBike* createbike()
+    {
+        return new HondaBike();
+    }
+    
+};
+
+class abstractfactory
+{
+    public:
+    static IVehicle* createfactory(string s)
+    {
+        if (s == "Honda")
+        {
+            return new Hondafactory;
+        }
+        else if (s == "maruti")
+            return new Marutifactory;
+    }
+};
+
+int main()
+{
+    string ss;
+    cout<<"enter honfa or maruti"<<endl;
+    cin>>ss;
+    IVehicle* vehi =  abstractfactory::createfactory(ss);
+    ICar* c = vehi->createcar();
+    c->Iscar();
+    return 0;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

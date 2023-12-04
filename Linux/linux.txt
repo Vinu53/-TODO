@@ -1,0 +1,83 @@
+GNU is the OS, linux is the kernel that powers the OS:: combination of this two result in
+distribution of new lonux like ubntu,redhat, fedroa etc,
+
+linux commands:
+ls -lists all the directories
+
+ls -l = lists all the conetnts along witj owner permissions and creation date
+eg: -rwx rwx rwx 3 edureka edureka 21 apr 6:45 ql.sh 
+      1st rwx for users
+      2nd rwx for user groups
+      3rd rwx for others
+
+ls-- author    eg:ls --author filename
+
+ls -LS > test.txt :: > copies the content of ls to test.txt 
+
+cat test.txt -- used to display the content of file
+even less.txt  can display the conetnt of file, but ti displays it in a seprate window(it helps to keep ur workspace less fluttered)
+cat -b less.txt - adds line no to filled lines and if blank line it skips the balnk line	
+cat -n less.txt - adds line no to all lines 
+cay -s less.txt - To squeeze blank lines into one line
+cat -E - to show dollar symbol at the end of line	
+q - quit
+
+cd -chnage directory
+cd.. or cd~ or cd/  go to root directory
+
+grep used to find string or worrd in a file
+eg/: grep cd line.txt
+
+sort - to sort
+
+cp - to copy from one  fiole to another eg: cp <existing file name> <new file name>  
+also cp file (to some location) eg: cp fiole.txt  .home/edurake/
+cp - n: does not override the fie
+
+rm filename  - to remove file
+
+mv file.txt  /home/edureka/public/ (to move file to a particular location)
+ls /home/edureka/public/ == to see files in particular folder
+
+mkdir Demo (its's in blue then it;s a diretory)
+touch - to crate many files
+
+by deafults, fiels created will only have read mode, if u want to change mode
+chmod +x(+w +r) filename
+
+chmod 777 flename ( changes all permissions)
+
+0  = 0 = no 
+1  =  1  =  execute (X)
+2  =   2   =  write (w) 
+3  =   2+1 =  w+x
+4  =   4    =  read (r)
+5  =   4+1  = r+x
+6  =   4+2  = r+w
+7  =  4+2+1 = r+w+x
+
+-----------------------------------------------------------------------------------------------------------------------------------
+linux commandds used in devops :::
+
+man (command) eg: man ls - gives drcsriptipn of command
+sudo bash - to go to root 
+
+sudo vi abc.txt
+after writing in a file : press esc then :wq
+
+grep filenmae - to search the string in a file
+grep -i   = returns result for case insensitive
+grep -n =  returns result for matching string with line no
+grep - v  = returns result for line not matching 
+grep - c  = returns result for lines matching string
+
+sort  = to sort
+sort -r  = returns result for reverse sort
+sort -f  = returns result for case insesntive
+sort - n = returns result for numbers
+
+
+
+
+
+

@@ -1,0 +1,366 @@
+SOLID refrence:
+
+https://www.geeksforgeeks.org/solid-principle-in-programming-understand-with-real-life-examples/
+
+https://www.bogotobogo.com/DesignPatterns/Dependency_Injection_Design_Pattern_Inversion_Of_Control_IoC.php
+
+1) Single Resposnsibilty principle:
+#include <iostream>
+
+class Rectangle {
+private:
+    double width;
+    double height;
+
+public:
+    Rectangle(double w, double h) : width(w), height(h) {}
+
+    double calculateArea() {
+        return width * height;
+    }
+};
+
+int main() {
+    Rectangle rectangle(5.0, 3.0);
+
+    double area = rectangle.calculateArea();
+    std::cout << "Area of the rectangle: " << area << std::endl;
+
+    return 0;
+}
+
+
+2)Open/Closed principle:: ->
+
+Acheived  -- using abstract base classes:
+eg:  Emplyoee class
+       class permeannet : Emplyoee
+      class temporary :    Emplyoee
+#include <iostream>
+#include <vector>
+
+// Base class representing a Shape
+class Shape {
+public:
+    virtual double area() const = 0; // Pure virtual function for area calculation
+};
+
+// Derived classes for specific shapes: Circle and Rectangle
+class Circle : public Shape {
+private:
+    double radius;
+
+public:
+    Circle(double r) : radius(r) {}
+
+    double area() const override {
+        return 3.14159265359 * radius * radius;
+    }
+};
+
+class Rectangle : public Shape {
+private:
+    double width;
+    double height;
+
+public:
+    Rectangle(double w, double h) : width(w), height(h) {}
+
+    double area() const override {
+        return width * height;
+    }
+};
+
+int main() {
+    std::vector<Shape*> shapes;
+    
+    // Add some shapes to the vector
+    shapes.push_back(new Circle(5.0));
+    shapes.push_back(new Rectangle(4.0, 6.0));
+    
+    // Calculate and display the areas of all shapes
+    for (const Shape* shape : shapes) {
+        std::cout << "Area: " << shape->area() << std::endl;
+    }
+    
+    // Clean up dynamically allocated objects
+    for (Shape* shape : shapes) {
+        delete shape;
+    }
+
+    return 0;
+}
+
+
+
+3) Liskov's substitution principle::  ALlL the methods of base class should be used in derived class else that LSP will be brolken, such meyhods should be removed from base
+			    class  
+#include <iostream>
+
+// Base class representing a Bird
+class Bird {
+public:
+    virtual void fly() const {
+        std::cout << "A bird is flying." << std::endl;
+    }
+};
+
+// Derived class representing a Penguin
+class Penguin : public Bird {
+public:
+    // Penguins cannot fly, so we override the fly method
+    void fly() const override {
+        std::cout << "A penguin cannot fly." << std::endl;
+    }
+};
+
+// Function that takes a Bird object and makes it fly
+void makeBirdFly(const Bird& bird) {
+    bird.fly();
+}
+
+int main() {
+    Bird genericBird;
+    Penguin penguin;
+
+    std::cout << "Using a Bird object:" << std::endl;
+    makeBirdFly(genericBird);
+
+    std::cout << "\nUsing a Penguin object:" << std::endl;
+    makeBirdFly(penguin);
+
+    return 0;
+}
+
+
+
+4) Interfce Seggregation :
+
+#include <iostream>
+
+// Interface for devices that can browse the internet
+class IBrowsable {
+public:
+    virtual void browse() = 0;
+};
+
+// Interface for devices that can stream content
+class IStreamable {
+public:
+    virtual void stream() = 0;
+};
+
+// Concrete class representing a smartphone that can browse and stream
+class Smartphone : public IBrowsable, public IStreamable {
+public:
+    void browse() override {
+        std::cout << "Browsing the internet on a smartphone." << std::endl;
+    }
+
+    void stream() override {
+        std::cout << "Streaming content on a smartphone." << std::endl;
+    }
+};
+
+// Concrete class representing a desktop computer that can only browse
+class DesktopComputer : public IBrowsable {
+public:
+    void browse() override {
+        std::cout << "Browsing the internet on a desktop computer." << std::endl;
+    }
+};
+
+int main() {
+    Smartphone smartphone;
+    DesktopComputer desktopComputer;
+
+    std::cout << "Using a smartphone:" << std::endl;
+    smartphone.browse();
+    smartphone.stream();
+
+    std::cout << "\nUsing a desktop computer:" << std::endl;
+    desktopComputer.browse();
+
+    return 0;
+}
+
+5)Dependancy Inversion:
+
+	#include <iostream>
+
+// Concrete implementation of a light bulb
+class LightBulb {
+public:
+    void turnOn() {
+        std::cout << "Light bulb is on." << std::endl;
+    }
+
+    void turnOff() {
+        std::cout << "Light bulb is off." << std::endl;
+    }
+};
+
+// Concrete implementation of a fan
+class Fan {
+public:
+    void start() {
+        std::cout << "Fan is running." << std::endl;
+    }
+
+    void stop() {
+        std::cout << "Fan is stopped." << std::endl;
+    }
+};
+
+// High-level module that depends on concrete implementations
+class Switch {
+public:
+    void controlLight(LightBulb& bulb) {
+        // Turn the light bulb on or off
+        bulb.turnOn();
+        bulb.turnOff();
+    }
+
+    void controlFan(Fan& fan) {
+        // Start or stop the fan
+        fan.start();
+        fan.stop();
+    }
+};
+
+int main() {
+    LightBulb bulb;
+    Fan fan;
+    Switch switchDevice;
+
+    // Control the light bulb and the fan using the Switch class
+    switchDevice.controlLight(bulb);
+    switchDevice.controlFan(fan);
+
+    return 0;
+}
+the abobe code deosnt adhere to fooloow DIP:, the modifies one is below:
+
+#include <iostream>
+
+// Abstract interface for devices
+class Device {
+public:
+    virtual void turnOn() = 0;
+    virtual void turnOff() = 0;
+};
+
+// Concrete implementation of a light bulb
+class LightBulb : public Device {
+public:
+    void turnOn() override {
+        std::cout << "Light bulb is on." << std::endl;
+    }
+
+    void turnOff() override {
+        std::cout << "Light bulb is off." << std::endl;
+    }
+};
+
+// Concrete implementation of a fan
+class Fan : public Device {
+public:
+    void turnOn() override {
+        std::cout << "Fan is running." << std::endl;
+    }
+
+    void turnOff() override {
+        std::cout << "Fan is stopped." << std::endl;
+    }
+};
+
+// High-level module that depends on abstractions (interfaces)
+class Switch {
+public:
+    void control(Device& device) {
+        // Turn the device on or off
+        device.turnOn();
+        device.turnOff();
+    }
+};
+
+int main() {
+    LightBulb bulb;
+    Fan fan;
+    Switch switchDevice;
+
+    // Control the light bulb and the fan using the Switch class
+    switchDevice.control(bulb);
+    switchDevice.control(fan);
+
+    return 0;
+}
+
+
+
+
+Dependemcy injection : 
+In software engineering, dependency injection is a programming technique in which an object or function receives other objects or functions that it depends on. Dependency injection aims to separate the concerns of constructing objects and using them, leading to loosely coupled programs.
+
+eg:
+#include <iostream>
+
+// Dependency interface
+class ILogger {
+public:
+    virtual void log(const std::string& message) = 0;
+    virtual ~ILogger() = default;
+};
+
+// Concrete dependency
+class ConsoleLogger : public ILogger {
+public:
+    void log(const std::string& message) override {
+        std::cout << "Console Logger: " << message << std::endl;
+    }
+};
+
+// Class using Dependency Injection with constructor injection
+class ProductService {
+public:
+    ProductService(ILogger& logger) : logger_(logger) {}
+
+    void processProduct(const std::string& productName) {
+        // Process the product
+        logger_.log("Product processed: " + productName);
+    }
+
+private:
+    ILogger& logger_;
+};
+
+int main() {
+    ConsoleLogger logger;
+    ProductService productService(logger);
+
+    productService.processProduct("Widget"); // Output will be printed here
+
+    return 0;
+}
+
+
+
+Dependency Injection is a design pattern used to achieve loose coupling between classes by allowing the dependencies to be "injected" from outside the class rather than being created or instantiated within the class itself. In DI, a class doesn't create its own dependencies directly; instead, they are provided from the outside, typically through constructors, setter methods, or method parameters.
+
+In C++, DI is often implemented through constructor injection or setter injection. The goal is to separate the construction of objects from their usage, making it easier to replace or modify dependencies without altering the class that depends on them.
+
+Dependency Inversion Principle (DIP):
+Dependency Inversion Principle is one of the SOLID principles of object-oriented design. It states that high-level modules should not depend on low-level modules; both should depend on abstractions. Furthermore, abstractions should not depend on details; details should depend on abstractions.
+
+In simpler terms, DIP promotes the use of interfaces or abstract classes to define interactions between components, allowing high-level modules to depend on these abstractions instead of concrete implementations. This helps in decoupling components and making the code more flexible and easier to maintain.
+
+In summary, the main difference between Dependency Injection and Dependency Inversion Principle is:
+
+Dependency Injection is a specific design pattern that facilitates loose coupling by injecting dependencies from outside the class.
+Dependency Inversion Principle is a general design principle that advocates using abstractions (interfaces or abstract classes) to define interactions between components, promoting loose coupling between high-level and low-level modules.
+In practice, Dependency Injection often goes hand in hand with adhering to the Dependency Inversion Principle. By using dependency injection, you can effectively follow the Dependency Inversion Principle by decoupling high-level modules from low-level modules and relying on abstractions for interactions.
+
+
+
+
+       

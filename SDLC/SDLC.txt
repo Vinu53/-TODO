@@ -1,0 +1,70 @@
+SDLC
+
+Software Development Life Cycle (SDLC) is a process used by the software industry to design, develop and test high quality softwares. The SDLC aims to produce a high-quality software that meets or exceeds customer expectations, reaches completion within times and cost estimates.
+
+SDLC is the acronym of Software Development Life Cycle.
+
+SDLC is a framework defining tasks performed at each step in the software development process.
+
+It is also called as Software Development Process.
+
+six stages:
+1 planning
+2 defining
+3 designing
+4 developing/building
+5 testing
+6 deploymnet
+
+Models  : https://www.javatpoint.com/software-engineering-prototype-model
+-------------
+
+1) Waterfall model : The steps always follow in this order and do not overlap. The developer must complete every phase before the next phase begins. This model is named "Waterfall Model", because its diagrammatic representation resembles a cascade of waterfalls.
+
+Requirement analysis
+Design phase
+Impolementationa nd unit testting
+Intergartion and System tesung
+Operation and maintainence phase
+
+
+uses: 
+When the requirements are constant and not changed regularly.
+A project is short
+The situation is calm
+Where the tools and technology used is consistent and is not changing
+When resources are well prepared and are available to use.
+
+
+2) Spiral models:
+
+ Using the spiral model, the software is developed in a series of incremental releases. During the early iterations, the additional release may be a paper model or prototype. During later iterations, more and more complete versions of the engineered system are produced.
+ 
+ As one of the most flexible SDLC models out there, the Spiral model is used by the world’s leading software companies.
+ Spiral enables project teams to build a highly customised product. Spiral methodology passes through four phases repeatedly 
+ until the project is finished: planning, risk analysis, engineering, and evaluation.
+
+The biggest difference between Spiral and other SDLC methodologies is that it is focused on risk analysis,
+ with each iteration it focuses on mitigating potential risks. The model also emphasises customer feedback,
+ and as the prototype build is done in small increments, cost estimation becomes easier.
+
+3) V Model:
+Similar to the waterfall methodology where testing is done at the end of a project, with the V-model, 
+testing happens at every stage of development. The next stage of the V-model starts only when the previous stage is entirely finished.
+
+As part of the V-Model, a software tester has to verify if the requirements of a specific development phase are met.
+
+ They also have to validate that the system meets the needs of the user, customer or other stakeholders, which includes both verifications and validations.
+
+There’s no one size fits all solution when it comes to Software Development Life Cycle methodologies, so we hope this has helped you gain a better of understanding of the various SDLC methodologies and helped you find the right approach to suit your business.
+
+
+
+4) Agile Model
+
+   The meaning of Agile is swift or versatile."Agile process model" refers to a software development approach based on iterative development. Agile methods break tasks into smaller iterations, or parts do not directly involve long term planning. The project scope and requirements are laid down at the beginning of the development process. Plans regarding the number of iterations, the duration and the scope of each iteration are clearly defined in advance.
+ Agile is a combination of an incremental and iterative approach, where the product is released on an ongoing cycle then
+ tested and improved at each iteration. Fast failure is encouraged in agile methodology: the theory is that if you fail fast 
+ and early, you can solve minor issues before they grow into major issues.
+
+https://www.scrum.org/learning-series/what-is-scrum

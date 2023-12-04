@@ -1,0 +1,163 @@
+we use linux as base os for docker because it has properties like resourse sharing, memroty sharing, cpu , ram 
+
+docker hub- place ewhere we can download or get docker images
+
+image is just a file . with all the dependencies and configuration to run a program	
+an image comes with 2 things: file system snapshot and startup command
+
+wheras container contains axtual set of resources that are used from ur computer
+container is a isolated set of hardware resources which actually uses the resources of machine 
+container id: uniquely identifies a conatiner.
+
+
+Name Spacing: Namespaces are a feature of the Linux kernel that partitions kernel resources such that one set of processes sees one set of resources 
+while another set of processes sees a different set of resources. 
+In other words, the key feature of namespaces is that they isolate processes from each other
+
+control groups :  limit resources per process
+
+docker ps = shows all containers ,active state
+
+docker ps -all = shows all containers even from exit state 
+docker ps -a = shows all containers even from stopped state
+
+docker stop (id)  = to stop the containers , 
+
+// docker run = dcoker create + docker start , run command  = create+start
+i.e. docker run = docker pull + docker start
+docker run -> will create a containe from an image
+docker run -d ->to run in detatch mode 
+
+docker craete hello-world -->ceate id
+docker start id  -> generate id
+docker start -a id -> strat and display the output
+
+docker log (id from above) ->alternative to above but it doesnt. resrtart or rerun the container but just getting the record 
+
+To remove the stopped contanier completely from our system:
+docker system prune
+
+
+To enter into the running container and execute some comands in that container:
+docker exec -it id redis-cli :
+if we do not use -it (then o/p will not be displayed and will exit the container) 
+docker exec id redic-cli:
+
+ to get the CLI in container :: ->
+docker exec -it id sh
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+docker run -it busybox sh : starting a shell
+
+also container isolation is present i.e. fiels create din 1 container will not be visible in anotehr conrainwer
+
+when u diwload any docker image using command: docker pull redis ->it will download the image file
+to create  a contaimer from that image run: docker run redis  
+
+if u want to have 2 versions of same image then its possible , by using the docker run redis:(version) 
+and both will have ports number.
+
+what happens when 2 containers are running on same port:
+then u have to bind container port with local port (called as port binding)
+
+eg: docker run -p6000:6379 redis  (6379 port of image)
+    docker run -p6000:6379 redis 4.0 (will get error because we r using the same port p6000)
+
+docker logs: to see the logs of container.
+
+when a containe ris create dit gets a random name , u can rename it to ur choices
+whe u chng the name anoyher container will be created.
+
+if u wanr to get into any particular container then ,docker exec -it id /bin/bash.
+
+
+If u wanrt to create a docker image from ur local host , that is done using docker file
+docke file contains some docker commands run those commnds from that command generate
+the image file and then launch it it in a repository.
+
+
+in docker file u need to mention all the requirements for u applications , dependencies , 
+version of software and all other necessity stuff anf from this docker file u can generate  a docker image usimng the command
+
+docker build -t my-app:1.0  .
+then image will be built .
+
+once the image willbe built , u can verify whether it works or not using , 
+docker images: list of image files
+
+docker run my-app:1.0
+and if u get some errors afterb runig the image then,
+if u have to rebuild the image , first delete the image file from urn system usiong the comamnd : 
+
+docker rmi id
+but this will not work, untillmu delete the container , to find the specific conatiner
+docker ps - a // gives the list of conatiners
+so run, docker ps -a | grep my-app
+
+ from there , docker rm id (of contianer)
+
+then docker rmi id (of image)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+process to create our own image
+
+Dockerfile -a plain text file, contains configuration to define how our container shouls behave
+in that file write the neccessary instructions to create a image and then run
+
+cd ~ 
+
+cd foldername 
+
+code .
+write code 
+
+docker build . -- >gives a image id
+(image wiil be generated)
+
+docker run id --> starts a container
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+process to modify a image (manual imge generation with docker commit
+
+docker run  -it alpine sh ( runs the alpine in shell mode{editable mode} )
+
+install some additnal softeware like ,
+
+apk add --update redis (this will download redis in the running container) 
+
+then open another docker terminal, docker ps to get id
+
+this id is the new image (modified) 
+
+docker run id ( to run the customized image)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+making real project
+
+
+craete a directory: mkdir somename
+
+cd somename
+
+code.  (nodejs, package.json, Dockerfile)
+
+(write ur code in any language)
+
+then create a docker fiel in the same editor with all the required steps
+
+After ruunign the file , try to open the localhost:8080 in web but will not be sble todo it because,
+
+the request made from web to host is routed into container so the conatiw r has its own set of portts
+thqt can handle traffic . By deafult no traffic from host will be direscted to container.
+to do so we have to do something called as port mapping.
+
+Port mapping is where when someone makes a reqest to  a host take the traffic directly to any port on container
+(Incoming requests) 	
+
+docker run -p 8080:8080 id  (to ping te server)
+
+then run localhost:8080 in browser, 
+
+
+
+

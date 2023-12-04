@@ -1,0 +1,6 @@
+INFiX PREFIX AND POSTFIX
+
+machine always processes postifx fast then infix and prefix
+
+infix to postfix using normal ans stack
+

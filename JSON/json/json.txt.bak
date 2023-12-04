@@ -1,0 +1,16 @@
+JSON :: -->
+
+JSON stands for JavaScript Object Notation
+JSON is a text format for storing and transporting data
+JSON is "self-describing" and easy to understand
+JSON is a lightweight data-interchange format
+JSON is plain text written in JavaScript object notation
+
+JSON parsing is the process of converting a JSON object in text format to a Javascript object that can be
+used inside a program. In Javascript, the standard way to do this is by using the method JSON.parse().
+
+Why JSON is Better Than XML
+XML is much more difficult to parse than JSON.
+JSON is parsed into a ready-to-use JavaScript object.
+
+

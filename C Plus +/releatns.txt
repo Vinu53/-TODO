@@ -1,0 +1,175 @@
+In object-oriented programming, there are several types of relationships between classes. Here are the commonly used ones along with examples in C++:
+
+1. Inheritance (IS-A relationship):
+   Inheritance represents an "IS-A" relationship between classes. It allows a class (derived class/subclass) to inherit properties and behaviors from another class (base class/superclass). The derived class extends or specializes the base class. In C++, inheritance is implemented using the `public`, `protected`, or `private` keywords.
+
+   Example:
+   ```cpp
+   class Shape { ... };
+
+   class Circle : public Shape { ... };
+   ```
+
+2. Composition (HAS-A relationship):
+   Composition represents a "HAS-A" relationship between classes, where one class contains objects of another class as member variables. The objects have their own lifetime and are typically created and destroyed within the container class.
+
+#include <iostream>
+#include <string>
+
+class Engine {
+public:
+    void start() {
+        std::cout << "Engine started" << std::endl;
+    }
+};
+
+class Car {
+private:
+    std::string brand;
+    Engine engine;
+
+public:
+    Car(const std::string& carBrand) : brand(carBrand) {}
+
+    void startCar() {
+        std::cout << "Starting the " << brand << " car..." << std::endl;
+        engine.start();
+    }
+};
+
+int main() {
+    Car car("Toyota");
+    car.startCar();
+
+    return 0;
+}
+
+here, lifetime of engine object is managed by the car object(car is the container class)
+`
+
+3. Aggregation (HAS-A relationship with shared ownership):
+   Aggregation is a variant of the composition relationship where one class contains objects of another class, but the objects have independent lifetimes. The objects can exist outside the scope of the container class and can be shared between multiple container objects.
+
+   Example:
+   ```cpp
+   class Student { ... };
+
+   class Classroom {
+   private:
+       std::vector<Student*> students;
+   };
+   ```
+
+4. Association (relationship without ownership):
+   Association represents a relationship between two classes without implying ownership or containment. It can be a one-to-one, one-to-many, or many-to-many relationship.
+
+   Example:
+   ```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+class Department;  // Forward declaration
+
+class Employee {
+private:
+    std::string name;
+    std::vector<Department*> departments;
+
+public:
+    Employee(const std::string& employeeName) : name(employeeName) {}
+
+    void addDepartment(Department* department) {
+        departments.push_back(department);
+    }
+
+    void displayDepartments() {
+        std::cout << "Departments of " << name << ":" << std::endl;
+        for (const auto& department : departments) {
+            std::cout << "- " << department->getName() << std::endl;
+        }
+    }
+};
+
+class Department {
+private:
+    std::string name;
+
+public:
+    Department(const std::string& departmentName) : name(departmentName) {}
+
+    std::string getName() const {
+        return name;
+    }
+};
+
+int main() {
+    Employee employee("John");
+    Department department1("HR");
+    Department department2("Finance");
+
+    employee.addDepartment(&department1);
+    employee.addDepartment(&department2);
+
+    employee.displayDepartments();
+
+    return 0;
+}
+
+
+5. Dependency:
+   Dependency represents a relationship where one class depends on another class for its functionality. Changes in the dependent class may affect the class that depends on it.
+#include <iostream>
+#include <string>
+
+class Logger {
+public:
+    void log(const std::string& message) {
+        std::cout << "Logging: " << message << std::endl;
+    }
+};
+
+class UserManager {
+private:
+    Logger& logger;
+
+public:
+    UserManager(Logger& log) : logger(log) {}
+
+    void createUser(const std::string& username) {
+        // Create user logic
+        logger.log("User created: " + username);
+    }
+};
+
+int main() {
+    Logger logger;
+    UserManager userManager(logger);
+
+    userManager.createUser("John Doe");
+
+    return 0;
+}
+
+
+These are some of the commonly used relationships between classes in C++. Each relationship serves a different purpose and has its own implications in terms of code organization and behavior.
+
+
+
+
+VTABLES are created for all the classes which have atleast one virtual function or for all the classes which are derived from class which have atleast one 
+'virtual function.
+
+VTables are lookup tables which have fucntion pointer , this are used to dynmaicaaly bind virtual functions depending on the object.
+VTables are formed by compiler at compile time, this are static arrays i.e. all the objexts point to same vtable.
+
+
+when a class is created with a virtual fn a hiiden poinyter is crated called virtual pointer.
+
+virtual functions are called depending on object type instaed of ppointer or refremnc type.
+virtual functions cannot be static because, they aren;t tied to instance siof the class
+
+
+
+
+

@@ -1,0 +1,98 @@
+#include <iostream>
+using namespace std;
+
+int firstelemtoccured(int a[], int n, int k)
+{
+    int maxi = 100;
+    for (int i = 0; i < n; i++)
+    {
+        int sum = 1;
+        int x=0;
+        for (int j = i + 1; j < n; j++)
+        {
+            
+            if (a[i] == a[j])
+            {
+                sum += 1;
+                x+= j;
+            }
+        }
+        if (sum >= k)
+        {
+            cout<<"got"<<x<<endl;
+    
+            maxi = min(maxi,x);
+            cout<<"min is:"<<maxi<<endl;
+            //return 0;
+        }
+    }
+
+        return a[maxi];
+}
+
+int main()
+{
+    int n = 10, k = 3;
+    int arr[] = {4,2,2,2,3,4,4,4,3,2};
+    cout << firstelemtoccured(arr, n, k);
+    return 0;
+}
+
+
+// insert element in a array:
+#include<iostream>
+using namespace std;
+
+int main() {
+    int arr[6] = {12, 13, 34, 2};
+    int elem, index;
+
+    cout << "\nEnter Element and index to Insert: ";
+    cin >> elem >> index;
+
+    if (index < 0 || index >= 6) {
+        cout << "Invalid index. Index should be between 0 and 5." << endl;
+    } else {
+        for (int i = 5; i >= index; i--) {
+            arr[i + 1] = arr[i];
+        }
+        arr[index] = elem;
+
+        cout << "Updated array: " << endl;
+        for (int i = 0; i < 6; i++) {
+            cout << arr[i] << endl;
+        }
+    }
+
+    return 0;
+}
+
+
+// delete at particukar location:
+
+// pgm to delete at paticular location
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int arr[50], i, elem, pos, size;
+    cout<<"Enter the Size for Array: ";
+    cin>>size;
+    cout<<"Enter "<<size<<" Array Elements: ";
+    for(i=0; i<size; i++)
+        cin>>arr[i];
+    cout<<"At What Position elemeht to be deleted? ";
+    cin>>pos;
+    for(int i=pos;i<size;i++)
+    {
+        arr[i] = arr[i+1];
+    }
+    for(int i=0;i<size-1;i++)
+    {
+        cout<<arr[i]<<endl;
+    }
+    
+
+    return 0;
+}

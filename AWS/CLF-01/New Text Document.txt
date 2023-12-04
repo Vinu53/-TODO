@@ -1,0 +1,159 @@
+httpsaws.amazon.comblogsenterprise-strategy6-strategies-for-migrating-applications-to-the-cloud
+prespectives in aws
+6 r's in aws
+aws support plans
+route 53 (Hosted ZOne)
+
+
+KMS encryption - RSD , EBS
+
+free services - CLF, VPC , • IAM
+• VPC
+• Consolidated Billing
+• Elastic Beanstalk
+• CloudFormation
+• Auto Scaling Groups
+
+ELB And ASG, AMI - Regional
+
+High Avaliability == FAult tolerance
+
+IAM
+
+ Analyze access patterns & review permissions - iam asccess advisor
+ Audit permissions of your account with the IAM Credentials Report
+
+security groups
+
+ Can be attached to multiple instances
+• Locked down to a region / VPC combination
+ If your application is not accessible (time out), then it’s a security group issue
+• If your application gives a “connection refused“ error, then it’s an application 
+error or it’s not launched
+
+billing per second, after the first minute - on demand
+
+AMI - regoin scopic,  EBS - AZ, EFS - multi AZ
+
+Replication for data for EBS  volumes & EFS drives -  aws respondibility
+
+Datasync - to send data
+
+cloudwatch events or eventbridge -- serverless
+
+codedeploy == v1 to v2
+
+ Chef & Puppet help you perform server configuration automatically, or 
+repetitive actions
+
+Bring AWS resources (compute, database, storage, …) closer to your users - local zones
+DDoS Protection is not available with Route 53
+
+ 3 types of budgets: Usage, Cost, Reservation
+
+ Infrastructure Event Management, Well-Architected & Operations Reviews - Enterprice 
+
+Savings Plans: easy way to save based on long-term usage of AWS
+
+workspace - Daas - multiple regions
+
+SNS - push based system
+SQS - PUll based system
+
+flexible start and end time - spot//
+
+pay less by using more = economies of scale
+pay as u go -  reduce capital expenditure
+
+colocation facility and ISP == AWS direct connect
+
+use the idel cpu resources - elsaticity
+
+WAF can be attavhed to -- CFnt and APP LoBL
+
+compute optimizer - EC2, ASG, EBS, Lambda
+
+1- baseline intergration with ISTM tools
+2 - Alignment with ITIL Process
+
+quick sight - serverless
+
+403 error s3 bucker policy
+503 error The application is unresponsive so the ELB instance serves the 504 error page
+
+hypervosor is responsible for Multi Tenancy (managed by AWS)
+The hypervisor is responsible for isolating the virtual machines from each other as they share 
+resources from the host.
+
+// If applications communicate directly like our cashier and barista previously, this is called being tightly coupled.
+ 
+loosely coupled. This is an architecture where if one component fails, it is isolated and therefore won't cause cascading failures throughout the whole system. 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+If you weren't quite ready for serverless yet or you need access to the underlying environment, but still want
+ efficiency and portability, you should look at AWS container services like Amazon Elastic Container
+ Service, otherwise known as ECS. Or Amazon Elastic Kubernetes Service, otherwise known as EKS. 
+
+containers run on top of ec2 instances, so u can manage containers
+
+Kubernetes is open-source software that enables you to deploy and manage containerized applications at scale.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+sqs, sns , kinesis == serverless(aws managed)
+RDS - Database encryption setting - customer respons
+
+WAF & ACM : can be Deployed on Application Load Balancer, API Gateway, CloudFront
+
+Questions that can be solved by AWS Config: 
+• Is there unrestricted SSH access to my security groups?
+• Do my buckets have any public access?
+• How has my ALB configuration changed over time?
+
+AWS compute optimizer ::
+C2 instances • EC2 Auto Scaling Groups • EBS volumes • Lambda functions
+
+Listeners, Targets, and Target Groups round robin = Application load balancer 
+
+VPC falls is  Networking and Content Delivery category
+
+Distribution : represents a series of Edge Locations plus information about how you want content managed as part of a CDN
+
+----------------------------------------------------------------------------------------------------------
+
+Perfect --   Billing & Pricing
+	      Security & practice
+	     Cloud Concepts
+	     
+
+--------------------------------------------------------------------------------------------------------
+
+systems manager
+AWS SUPPORT PLANS
+. AWS IAM Access Analyzer
+idenetity federation
+
+ALb suppot invoking lambda functins to serve https requests
+
+EC2 instance recomeedndation (low) - not trusted adviseor but costxplorer
+
+EC2 instance runniing on linux imstance or wi ndows  - per second
+RDS - per hour
+
+amazon swf
+
+reservations can be applied to: ec2, dynamodb, elasticavhe, rds, redshift
+
+ Object storage clustering available - snoball edge stprage optimized not compute
+
+5 elstic IP adreess
+
+5 security groups to an instance
+
+under/over provisioned ec2 instnacs recommendation -- cost explorer
+
+operationl analtics - elesticahveservice
+interactive analtyieds - athena
+
+
+Amazon DLM for CRUD of EBS snapshots

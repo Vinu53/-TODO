@@ -1,0 +1,68 @@
+javascripr runs only on browser i.e. it is cliemt centric can be used inly on client side
+
+node js is a javascript runtime envirnment which uses V8 javascript engine , where we can run javascriopt on machines. it can also be used to make
+web apps, mobile apps and server side. using node js u can build standalone application.
+
+node js ,is a javascript engine which runs ur javascirpt on a physical machine
+node js a server side runtime , express js is the framework for web application(backend)
+node js has something npm (node package manager) : 
+
+
+angular/react frontend framework and mongo db as the database and node js as the backend framewrok to 
+create  an entire appliaction.
+
+---------------------------------------------------------------------------------------------------------------------
+
+Java server uses something caleed as thread to handle multiple requets from clients
+but in case of node js uses wait till the first thread completes (which is time consuming)
+
+It uses something called as Non-blocking I/O,
+SO it is mostly used for I/O intensive work not for CPU intensive work
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+Docker compose with multiple containers
+
+Note: we dont need to rebuild the image if we make any changes in source code but we need to rebuild 
+if we make any changes in json file
+
+create   a web application to count no of visits : 
+
+nodejs + redis (javascript client libraray for connecting to a redis server)
+
+create a files:
+
+So when u create files and run Dockerfile u will get 2 conatiners nodeapp and redis but 2 separte contaienr will be craeted .
+since both contasiners are not craeted so to do that we use somethnng called docker compose.
+
+The main purpose of docker compose is to avoid writtin of this long commands in CLI, it reduces code length also
+to start multilpe containers at samwe time automatically connect all the contauners.
+
+
+
+
+
+SECTION 6::-------------------------------------------------------------------------------------------------------------------------------------------------->
+
+

@@ -1,0 +1,548 @@
+
+Stack using array::
+
+
+struct stack
+{
+	int size;
+	int top;
+	int *arr;
+}
+
+there is something called as top which always points to the top element
+
+
+Traversal and inserting in stack:
+#include <iostream>
+using namespace std;
+
+ 
+struct Stack
+{
+    int top;
+    int size;
+    int* arr;
+};
+ 
+int IsEmpty(Stack *ptr)
+{
+    if (ptr->top == -1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int IsFull(Stack* ptr)
+{
+    if(ptr->top == ptr->size-1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int main()
+
+{
+    Stack *s = new Stack();
+    s->size = 4;
+    s->top = -1;
+    s->arr = new int[s->size];
+    
+    for(int i=0; i<s->size;i++)
+    {
+        cout<<"enter the "<<i<<" "<<"element"<<endl;
+        cin>>s->arr[i];
+        s->top++;
+    }
+    
+     for(int i=0; i<s->size;i++)
+    {
+        cout<<s->arr[i]<<endl;
+    }
+    
+    cout<<s->top;
+    
+  //  if(IsEmpty(s))
+    //{
+      //  cout<<"currect";
+    //}
+    
+    delete[] s->arr; // Free memory allocated for stack array
+    delete s; // Free memory allocated for Stack structure
+    
+    
+    return 0;
+}
+
+2)------------------------------------------------------------------------
+
+push and pop operation in c++
+
+1st approcah::
+
+
+#include <iostream>
+using namespace std;
+
+struct Node
+{
+    int data;
+    Node* next;
+};
+
+void Traversal(Node* ptr)
+{
+    while(ptr!=NULL)
+    {
+        cout<<"Element: "<<ptr->data<<endl;
+        ptr=ptr->next;
+    }
+}
+
+
+int IsEmpty(Node* top)
+{
+    if(top == NULL)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int IsFull(Node* top)
+{
+    Node* ptr = new Node;
+    if(ptr == NULL)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+    
+}
+
+Node* push(Node* top, int val)
+{
+    if(IsFull(top))
+    {
+        cout<<"stack full"<<endl;
+    }
+    else
+    {
+        Node* ptr = new Node;
+        ptr->next = top;
+        ptr->data = val;
+        top = ptr;
+    }
+    return top;
+}
+
+int pop(Node** top)
+{
+    if(IsEmpty(*top))
+    {
+        cout<<"stack is empty: "<<endl;
+    }
+    else
+    {
+        Node* ptr = *top;
+        *top = (*top)->next;
+        int x = ptr->data;
+        free(ptr);
+        return x;
+    }
+}
+
+
+int main()
+{
+    
+    Node* top = NULL;
+    top = push(top,23);
+    top = push(top, 344);
+    top = push(top, 45);
+    
+    
+    Traversal(top);
+    cout<<"after:: "<<endl;
+    cout<<pop(&top)<<endl;
+    Traversal(top);
+    return 0;
+
+}
+
+
+--------------------------------------------------------------------------------------------
+2nd approach using gloabal variable to avoid extra pointer 
+
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+using namespace std;
+
+struct Node
+{
+    int data;
+    Node* next;
+};
+
+    Node* top = NULL;
+
+void Traversal(Node* ptr)
+{
+    while(ptr!=NULL)
+    {
+        cout<<"Element: "<<ptr->data<<endl;
+        ptr=ptr->next;
+    }
+}
+
+
+int IsEmpty(Node* top)
+{
+    if(top == NULL)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int IsFull(Node* top)
+{
+    Node* ptr = new Node;
+    if(ptr == NULL)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+    
+}
+
+Node* push(Node* top, int val)
+{
+    if(IsFull(top))
+    {
+        cout<<"stack full"<<endl;
+    }
+    else
+    {
+        Node* ptr = new Node;
+        ptr->next = top;
+        ptr->data = val;
+        top = ptr;
+    }
+    return top;
+}
+
+int pop(Node* tp)
+{
+    if(IsEmpty(tp))
+    {
+        cout<<"stack is empty: "<<endl;
+    }
+    else
+    {
+        Node* ptr = tp;
+        top = tp->next;
+        int x = ptr->data;
+        free(ptr);
+        return x;
+    }
+}
+
+
+int main()
+{
+    
+
+    top = push(top,23);
+    top = push(top, 344);
+    top = push(top, 45);
+    
+    
+    Traversal(top);
+    cout<<"after:: "<<endl;
+    cout<<pop(top)<<endl;
+    Traversal(top);
+    return 0;
+
+}
+
+----------------------------------------------------------------------------------------------------------
+
+Implement stacktop, stackbottom, stackpeek
+
+
+
+#include <iostream>
+using namespace std;
+
+struct Node
+{
+    int data;
+    Node* next;
+};
+
+void Traversal(Node* ptr)
+{
+    while(ptr!=NULL)
+    {
+        cout<<"Element: "<<ptr->data<<endl;
+        ptr=ptr->next;
+    }
+}
+
+
+int IsEmpty(Node* top)
+{
+    if(top == NULL)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int IsFull(Node* top)
+{
+    Node* ptr = new Node;
+    if(ptr == NULL)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+    
+}
+
+Node* push(Node* top, int val)
+{
+    if(IsFull(top))
+    {
+        cout<<"stack full"<<endl;
+    }
+    else
+    {
+        Node* ptr = new Node;
+        ptr->next = top;
+        ptr->data = val;
+        top = ptr;
+    }
+    return top;
+}
+
+int pop(Node** top)
+{
+    if(IsEmpty(*top))
+    {
+        cout<<"stack is empty: "<<endl;
+    }
+    else
+    {
+        Node* ptr = *top;
+        *top = (*top)->next;
+        int x = ptr->data;
+        free(ptr);
+        return x;
+    }
+}
+
+
+int peek(Node* top)
+{
+    Node* ptr = top;
+    for(int i=0;ptr!=NULL;i++)
+    {
+        cout<<"eleemnt is:  "<<ptr->data<<endl;
+        ptr=ptr->next;
+    }
+    return 1;
+  
+}
+
+int peek(Node* top, int pos)
+{
+    Node* ptr = top;
+    for(int i=0; (i<=pos-1 && ptr!=NULL);i++)
+    {
+        ptr=ptr->next;
+    }
+      if(ptr!=NULL)
+    {
+        return ptr->data;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+int stacktop(Node* top)
+{
+    return top->data;
+}
+
+int stackbottom(Node* top)
+{
+    Node* ptr = top;
+    Node* p = ptr->next;
+    while(p!=NULL)
+    {
+        p=p->next;
+        ptr=ptr->next;
+    }
+    return ptr->data;
+}
+
+
+int main()
+{
+    
+    Node* top = NULL;
+    top = push(top,23);
+    top = push(top, 344);
+    top = push(top, 45);
+    top = push(top,245);
+    top = push(top,89);
+    
+    
+    Traversal(top);
+   // cout<<peek(top,2);
+  cout<<"the top data is :"<<stacktop(top)<<endl;
+   cout<<"the bootm data is: "<<stackbottom(top);
+    return 0;
+
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------
+Parenthesis matching::
+#include <stdio.h>
+#include <stdlib.h>
+ 
+struct stack
+{
+    int size;
+    int top;
+    char *arr;
+};
+ 
+int isEmpty(struct stack *ptr)
+{
+    if (ptr->top == -1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+ 
+int isFull(struct stack *ptr)
+{
+    if (ptr->top == ptr->size - 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+ 
+void push(struct stack* ptr, char val){
+    if(isFull(ptr)){
+        printf("Stack Overflow! Cannot push %d to the stack\n", val);
+    }
+    else{
+        ptr->top++;
+        ptr->arr[ptr->top] = val;
+    }
+}
+ 
+char pop(struct stack* ptr){
+    if(isEmpty(ptr)){
+        printf("Stack Underflow! Cannot pop from the stack\n");
+        return -1;
+    }
+    else{
+        char val = ptr->arr[ptr->top];
+        ptr->top--;
+        return val;
+    }
+}
+ 
+int parenthesisMatch(char * exp){
+    // Create and initialize the stack
+    struct stack* sp;
+    sp->size = 100;
+    sp->top = -1;
+    sp->arr = (char *)malloc(sp->size * sizeof(char));
+ 
+ 
+    for (int i = 0; exp[i]!='\0'; i++)
+    {
+        if(exp[i]=='('){
+            push(sp, '(');
+        }
+        else if(exp[i]==')'){
+            if(isEmpty(sp)){
+                return 0;
+            }
+            pop(sp); 
+        }
+    }
+ 
+    if(isEmpty(sp)){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+    
+}
+int main()
+{
+    char * exp = "((8)(*--$$9))";
+    // Check if stack is empty
+    if(parenthesisMatch(exp)){
+        printf("The parenthesis is matching");
+    }
+    else{
+        printf("The parenthesis is not matching");
+    }
+    return 0;
+}
+
+
+
+

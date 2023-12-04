@@ -1,0 +1,7 @@
+* if source code has eeros then no object code is produced
+* IDEs are program taht provide an editor way to compile , link and way to execute the source code
+* Compile-time errors are generally referred to the error corresponding to syntax or semantics. Runtime errors on the other hand refer to the error encountered during the execution of code at runtime.
+* c++ has 90 keywords
+*<< - stream insertion operator
+* >> - stream extraction operator
+*  

@@ -1,0 +1,21 @@
+diff bet dll and lib::
+
+LIB is a static library where functions and procedures can be placed and called as the application is being compiled. 
+A DLL or Dynamic Link Library does the same function but is dynamic in a sense that the application can call these 
+libraries during run-time and not during the compilation.
+
+1. A DLL is a library that contains functions that can be called by applications at run-time while LIB is a static library 
+   whose code needs to be called during the compilation
+2. Using LIB would result in a single file that is considerable bigger while you end up with multiple smaller files with DLL’s
+3. DLL’s are more reusable than LIBs when writing new versions or totally new applications
+4. DLL files can be used by other applications while LIB files cannot
+5. DLL’s are prone to versioning problems while LIB is not
+6. You would still have a LIB file when developing software with DLLs but it only contains stubs
+
+ ==                                                 .pdb file
+
+A program database file (extension .pdb) is a binary file that contains type and symbolic debugging information gathered 
+over the course of compiling and linking the project. A PDB file is created when you compile a C/C++ program with /ZI or /Zi 
+or a Visual Basic, Visual C#, or JScript program with the /debug option.
+
+

@@ -1,0 +1,510 @@
+UML - unified modeling lamnguage
+LLd  - low levele design
+
+https://www.geeksforgeeks.org/object-delegation-in-cpp/
+
+https://www.geeksforgeeks.org/introduction-to-pattern-designing/
+
+Design patterns are proven solutions to recurring problems in software design that have been developed by experienced software engineers. They provide a way to standardize and improve the design of software systems, making them easier to maintain, modify, and extend. In C++,
+
+
+1) creational 
+2) structural
+3) behavioural 
+
+
+1)Creational
+- Factory Method,
+ Abstract Factory,
+ Builder,
+ Singleton, 
+Object Pool and 
+Prototype.
+
+a) Factory design : https://github.com/rakeshmalviya1985/Design-Pattern/blob/master/Creational_FactoryDesignPattern.cpp
+
+
+i) Factory design : Factory Method is a creational design pattern that provides an interface for creating objects in a superclass,
+                   but allows subclasses to alter the type of objects that will be created.
+                  ii is also known as virtual constrcotre( c++ does not support virtual constructor)
+	eg:
+	#include <iostream>
+using namespace std;
+
+class vehicle
+{
+  public:
+    virtual void createvehicle() = 0;
+    
+};
+
+class car:public vehicle
+{
+    public:
+    void createvehicle()
+    {
+        cout<<"crrating car:"<<endl;
+    }
+    
+};
+
+class bike:public vehicle
+{
+    public:
+  void createvehicle()
+  {
+      cout<<"crrating bike"<<endl;
+  }
+};
+
+class vehiclefactory
+{
+    public:
+    static vehicle* getvehicle(string vehicletype)
+    {
+        vehicle* vehicle;
+        if(vehicletype == "bike")
+        {
+            vehicle = new bike();
+        }
+        else if(vehicletype == "car")
+        {
+            vehicle = new car();
+        }
+        return vehicle;
+    }
+};
+
+
+int main()
+{
+    string s;
+    cout<<"enter type of vehickle"<<endl;
+    cin>>s;
+    vehicle* v = vehiclefactory::getvehicle(s);
+    v->createvehicle();
+    
+    
+
+}
+				   
+ii) Abstract factory : Abstract Factory is a creational design pattern that lets you produce families of related objects without 
+                       specifying their concrete classes.
+					   eg: furnitures
+					   
+					   A family of related products, say: Chair + Sofa + CoffeeTable.
+					  Several variants of this family. For example, products Chair + Sofa + CoffeeTable are available in these variants:
+					  Modern, Victorian, ArtDeco.
+
+#include <iostream>
+using namespace std;
+
+class IButton
+{
+    public:
+  virtual void press() = 0;
+};
+
+class winbutton:public IButton
+{
+    public:
+    void press()
+    {
+        cout<<"show win button"<<endl;
+    }
+};
+
+class macbutton:public IButton
+{
+    public:
+    void press()
+    {
+        cout<<"show mac button"<<endl;
+    }
+};
+
+class ITextbox
+{
+    public:
+    virtual void display() = 0;
+};
+
+class wintextbox: public ITextbox
+{
+    public:
+    void display()
+    {
+        cout<<"show win text box"<<endl;
+    }
+};
+class mactextbox:public ITextbox
+{
+    public:
+    void display()
+    {
+        cout<<"show mac text box"<<endl;
+    }
+};
+
+
+class IFactory
+{
+    public:
+    virtual IButton* createbutton() = 0;
+    virtual ITextbox* createtextbox() = 0;
+    
+};
+
+class winfactory:public IFactory
+{
+    public:
+    IButton* createbutton()
+    {
+        return new winbutton();
+    }
+    
+    ITextbox* createtextbox()
+    {
+        return new wintextbox();
+    }
+};
+
+class macfactory:public IFactory
+{
+    public:
+    IButton* createbutton()
+    {
+        return new macbutton();
+    }
+    ITextbox* createtextbox()
+    {
+        return new mactextbox();
+    }
+};
+
+class GUIAbstractfactory
+{
+    public:
+    static IFactory* CreateFactory(string s)
+    {
+        if(s == "mac")
+        {
+            return new macfactory();
+        }
+        else if(s == "win")
+        {
+            return new winfactory();
+        }
+    }
+};
+
+int main()
+{
+    string s;
+    cout<<"enter os type"<<endl;
+    cin>>s;
+    IFactory* fact =GUIAbstractfactory::CreateFactory(s);
+    
+    IButton* bb = fact->createbutton();
+    bb -> press();
+    
+    ITextbox* tb = fact->createtextbox();
+    tb-> display();
+}
+  #include <iostream>
+#include <thread>
+#include <mutex>
+using namespace std;
+
+class IBike
+{
+    public:
+    virtual void printprice() = 0;
+};
+
+class ICar
+{
+    public:
+    virtual void printprice() = 0;
+};
+
+class Marbike:public IBike
+{
+  public:
+  void printprice()
+  {
+      cout<<"Marbike price is 50k"<<endl;
+  }
+};
+
+class Honbike:public IBike
+{
+  public:
+  void printprice()
+  {
+      cout<<"Marbike price is 60k"<<endl;
+  }
+};
+
+class Marcar:public ICar
+{
+    public:
+    void printprice()
+    {
+        cout<<"Marcar price is 100k"<<endl;
+    }
+};
+
+class Honcar:public ICar
+{
+    public:
+    void printprice()
+    {
+        cout<<"Hondacar price is 120k"<<endl;
+    }
+};
+
+class IFactory
+{
+    public:
+    virtual IBike* createbike() = 0;
+    virtual ICar* createcar() = 0;
+};
+
+class HonFactory:public  IFactory
+{
+    public:
+    
+    IBike* createbike()
+    {
+        return new Honbike();
+    }
+    
+    ICar* createcar()
+    {
+        return new Honcar();
+    }
+};
+
+class MarFactory: public IFactory
+{
+    public:
+    
+    IBike* createbike()
+    {
+        return new Marbike();
+    }
+    
+    ICar* createcar()
+    {
+        return new Marcar();
+    }
+};
+
+class Abstrcatfactory
+{
+    public:
+    static IFactory* createfactory(string s)
+    {
+        if(s == "Hon")
+        {
+            return new HonFactory();
+        }
+        else if(s == "Mar")
+        {
+            return new MarFactory();
+        }
+    }
+    
+};
+
+int main()
+{
+    string s;
+    cout<<"enter the type of brand u want:"<<endl;
+    cin>>s;
+    IFactory* fac = Abstrcatfactory::createfactory(s);
+    ICar* c = fac->createcar();
+    c->printprice();
+    
+    IBike* b = fac->createbike();
+    b->printprice();
+   return 0;
+   
+}
+
+	diff bet abstratc and factory design patterns is ::
+	factory design pattern was creating concrete classes or objects and abstract design pattern is going to create factories taht is going to create objectrs
+					  
+1V) singleton :The singleton pattern is used when you need to ensure that only one instance of a class exists. This can be useful in situations where you need to share resources between different parts of your code, or when you want to ensure that multiple instances of an object don't interfere with each other.
+
+
+  #include <iostream>
+#include <thread>
+#include <mutex>
+using namespace std;
+
+class Logger 
+{
+  private:
+  static int cn;
+  static Logger* loginstance = nullptr;
+  static std::mutex mtx;
+   Logger() 
+   {
+       cn++;
+       cout<<"coutn is:"<<cn<<endl;
+   }
+    
+    ~Logger();
+    
+    public:
+    
+    static Logger* getlogger()
+    
+    {
+        std::lock_guard<std::mutex> lock(mtx);
+        if(!loginstance)
+        {
+            loginstance = new Logger();
+        }
+        return loginstance;
+        
+    }
+    
+    void print()
+    {
+        cout<<"creation done"<<endl;
+    }
+    
+};
+
+int Logger::cn = 0;
+Logger* Logger::loginstance = nullptr;
+std::mutex Logger::mtx;
+
+void log1()
+{
+     Logger* l = Logger::getlogger();
+    l->print();
+}
+
+void log2()
+{
+     Logger* l2 = Logger::getlogger();
+    l2->print();
+}
+
+
+int main()
+{
+   thread t1(log1);
+   thread t2(log2);
+   t1.join();
+   t2.join();
+   return 0;
+}
+
+V) Builder design patterns: It is used whnenver we are buildoing a very compolex object which has a lot of coinfigurtions in it .
+         the builder class is an abstract class which defines common methiods the needs to be presnr in all subclasses and concrete classes
+		 which imherit this will be able to define this methiods.
+		 
+
+2) Structtural
+
+a)adapter:  Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate 
+
+
+
+
+3) behavioural design patterns
+
+a)observer 
+momento
+command
+mediator
+iterartor
+stratergy
+state
+
+
+a)Observer
+
+Observer is a behavioral design pattern that lets you define a subscription mechanism 
+to notify multiple objects about any events that happen to the object they’re observing.
+
+whenver there is a one data change and lot of people have to be notofied then we use or
+lot of things need to be done we use observer design patterns
+
+#include <list>
+#include<iostream>
+using namespace std;
+
+class ISubscribe
+{
+    public:
+    virtual void notify(string s) = 0;
+};
+
+class user:public ISubscribe
+{
+    private:
+    int userid;
+    public:
+    user(int userid)
+    {
+        this->userid = userid;
+    }
+    void notify(string s)
+    {
+        cout<<"user"<<userid<<"received message:"<<s<<endl;
+    }
+};
+
+class group
+{
+    private:
+        list<ISubscribe*> users;
+    public:
+        void subscribe(ISubscribe* user)
+        {
+            users.push_back(user);
+        }
+        void unsubscirbe(ISubscribe* user)
+        {
+            users.remove(user);
+        }
+        void notify(string msg)
+        {
+            for(auto i:users)
+            {
+                i->notify(msg);
+            }
+            
+        }
+};
+
+
+
+int main()
+{
+    group* g = new group;
+    
+    user* user1 = new user(1);
+    user* user2 = new user(2);
+    user* user3 = new user(3);
+    
+    g->subscribe(user1);
+    g->subscribe(user2);
+    g->subscribe(user3);
+    
+    g->notify("hi hi");
+    
+    g->unsubscirbe(user1);
+    g->notify("hi hi hi");
+    
+    
+}
+
+
+ 

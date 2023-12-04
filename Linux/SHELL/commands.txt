@@ -1,0 +1,12 @@
+echo $0 - to check wgich shell ur linux version is curretly having
+
+cat etc/os-release - os info
+cat /etc/shells - valid login shells
+
+all things presnt in directory : SHELLS
+
+$!/bin/bash - this lien tells linux what interepreter should be used to exxcute the above script      // not  mandatory but good to mention
+
+ping -c 1 google.com - to ping only once
+echo $? - to check connectivity status ,if 0 connected else no
+

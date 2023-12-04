@@ -1,0 +1,225 @@
+normal for loop can be applied to vector
+
+difference between list(double) and vector in STL
+
+list - non contigious memnroy allocation  , facster insertion and deletion
+random access is not allowed, It is defined as a template so it is able to hold any data type.
+cannot use normal form loop,
+
+use begin or auto 
+
+vector
+
+Random access – constant O(1)
+Insertion or removal of elements at the end – constant O(1)
+Insertion or removal of elements – linear in the distance to the end of the vector O(N)
+Knowing the size – constant O(1)
+Resizing the vector- Linear O(N)
+
+--------------------------------------------------------------------------------------------------------
+list
+
+ALL 	 	
+
+--------------------------------------------------------------------------------------------------------
+
+vectors and deque
+
+Double-ended queues are sequence containers with the feature of expansion and contraction on both ends. 
+They are similar to vectors, but are more efficient in case of insertion and deletion of elements.
+ Unlike vectors, contiguous storage allocation may not be guaranteed. 
+ 
+ deque:
+ 
+ Accessing Elements- O(1)
+Insertion or removal of elements- O(N)
+Insertion or removal of elements at start or end- O(1)
+
+--------------------------------------------------------------------------------------------------------
+
+Forward List - singly linked list:
+
+no, push_back, pop_back
+
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+CONTAINER ADAPTERS::
+
+Queues are a type of container adaptors that operate in a first in first out (FIFO) type of arrangement.
+
+normal for loop does not work
+
+The time complexity and definition of the following functions are as follows:
+
+queue::empty()	O(1)
+queue::size()	O(1)
+queue::emplace()	O(1)
+queue::front()	O(1)
+queue::back()	O(1)
+queue::push(g) 	O(1)
+queue::pop() 	O(1)
+
+--------------------------------------------------------------------------------------------------------
+
+A C++ priority queue is a type of container adapter, specifically designed such that the first element 
+of the queue is either the greatest or the smallest of all elements in the queue
+
+ a priority queue is implemented as max heap by default in C++ but, it also provides us an option to 
+ change it to min heap by passing another parameter while creating a priority queue.
+ 
+ 
+ Time complexity: O(n), where n is the number of elements in the queue.
+Space complexity: O(n), where n is the number of elements in the queue.
+q1.push(1), q1.push(2), q1.push(3), q2.push(4), q2.push(5), q2.push(6):
+
+Time complexity: O(1) for each push operation.
+Space complexity: O(n), where n is the total number of elements in both queues.
+q1.swap(q2):
+
+Time complexity: O(1) for each swap operation.
+Space complexity: O(1), as this operation only swaps the internal pointers of the two queues.
+q1.empty():
+
+Time complexity: O(1), as this operation simply checks if the queue is empty.
+Space complexity: O(1), as no extra space is used for this operation.
+Overall, the time and space complexities of this code are reasonable and efficient for typical use cases.
+
+--------------------------------------------------------------------------------------------------------
+
+priority queue ::
+
+priority_queue::empty()
+
+Methods                Time Complexity    Auxiliary Space
+
+priority_queue::empty() O(1)               O(1)
+priority_queue::size()   O(1)              O(1)
+priority_queue::top()    O(1)              O(1)
+priority_queue::push()   O(logN)           O(1)
+priority_queue::pop()    O(logN)           O(1)
+priority_queue::swap()    O(1)             O(N)
+priority_queue::emplace()O(logN)            O(1)
+priority_queue value_type  O(1)             O(1)
+
+
+by default decreasing order ::
+
+can be made to work in ascending order:
+	
+
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+ASSOCIATIVE CONTAINERS::
+
+Sets :->
+
+    are a type of associative container in which each element has to be unique because the value of the element
+ identifies it. The values are stored in a specific sorted order i.e. either ascending or descending.
+
+
+By default, the std::set is sorted in ascending order. However, we have the option to change the sorting 
+order by using the following syntax.
+
+std::set <data_type, greater<data_type>> set_name (to get in desecnding order)
+
+
+running for loop: using iterator or auto 
+
+--------------------------------------------------------------------------------------------------------
+MULTISET::
+
+Multisets are a type of associative containers similar to the set, with the exception that multiple elements
+ can have the same values. Some Basic Functions associated with multiset: 
+ 
+ Insertion of Elements- O(log N)
+Accessing Elements – O(log N)
+Deleting Elements- O(log N)
+
+ a.erase(a.find(10));  //it will remove only one value of 10 from multiset
+ 
+  // removing all instance of element from multiset it will remove all instance of value 10
+    a.erase(10);
+
+--------------------------------------------------------------------------------------------------------
+
+MAPS:: 
+
+Maps are associative containers that store elements in a mapped fashion. Each element has a key value and
+a mapped value. No two mapped values can have the same key values.
+ 
+ basic functions in map:
+ 
+begin() – Returns an iterator to the first element in the map. (for iterating)
+end() – Returns an iterator to the theoretical element that follows the last element in the map.
+size() – Returns the number of elements in the map.
+max_size() – Returns the maximum number of elements that the map can hold.
+empty() – Returns whether the map is empty.
+pair insert(keyvalue, mapvalue) – Adds a new element to the map.
+erase(iterator position) – Removes the element at the position pointed by the iterator.
+erase(const g)– Removes the key-value ‘g’ from the map.
+clear() – Removes all the elements from the map.
+
+SOME FUNCTIONALITIES:
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    int arr[] = {10, 30, 10, 10, 10, 30, 5, 1, 30, 30};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    std::map<int, int> m2;
+
+    // Count the frequency of each element
+   // for (int i = 0; i < size; i++) {
+     //   m2[arr[i]]++;
+    //}
+    
+    for(int i=0;i<size;i++)
+    {
+        auto it = m2.insert({arr[i],1});
+          if (!it.second) {
+            it.first->second++;
+        }
+    } 
+    
+
+    // Print the repeated elements and their frequencies
+    for (auto it =m2.begin(); it!=m2.end(); it++) 
+    {
+
+            std::cout << "Element " << it->first << " is repeated " << it->second << " times." << std::endl;
+    }
+    
+    std::map<int, int> countMap;
+
+    // Count the occurrences of each element
+    for (int i = 0; i < size; i++) {
+        auto it = countMap.insert({arr[i], 1});
+        if (!it.second) {
+            it.first->second++;
+        }
+    }
+
+    // Print the count of each element
+    for (auto pair : countMap) {
+        std::cout << "Element: " << pair.first << ", Count: " << pair.second << std::endl;
+    }
+    
+    int maxi = 0;
+    for(auto it =countMap.begin(); it!=countMap.end();it++ )
+    {
+          maxi = max(maxi,it->second);
+          
+    }
+    cout<<"max element is:"<<maxi<<endl;
+    return 0;
+}
+
+--------------------------------------------------------------------------------------------------------
+
+MULTIMAP:

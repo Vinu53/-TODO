@@ -1,0 +1,13 @@
+.invisible{
+  visibility: hidden;
+}
+
+.ds{
+  background-color: yellow;
+}
+
+.huge{
+  font-size: 5rem;
+  color:red;
+  font-weight: bolder;
+}

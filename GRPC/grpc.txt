@@ -1,0 +1,61 @@
+RPC stands for "Remote Procedure Call." It is a protocol that allows a program running on one computer or device to call a procedure or method on a remote computer or device, as if it were a local function call. RPC provides a mechanism for inter-process communication (IPC) and enables distributed computing.
+
+In an RPC system, there are typically two main components: the client and the server.
+
+- Client: The client initiates an RPC request by invoking a local procedure or method. The client provides the necessary input parameters for the remote procedure call.
+
+- Server: The server receives the RPC request from the client and executes the corresponding procedure or method. The server processes the request, performs any required computations or operations, and prepares a response.
+
+The key idea behind RPC is to abstract the complexities of network communication and provide a simple and transparent way for remote interaction. From the perspective of the client, invoking a remote procedure looks similar to invoking a local function. The client is shielded from the underlying details of how the request is transmitted, how the server processes it, and how the response is returned.
+
+Here's a simplified overview of how an RPC works:
+
+1. The client program prepares an RPC request, including the name of the procedure to be called and any input parameters. The client may use a stub or proxy object to abstract the low-level details.
+
+2. The client's RPC runtime library serializes the request into a network-friendly format and sends it over the network to the server.
+
+3. The server's RPC runtime library receives the request, deserializes it, and identifies the requested procedure or method.
+
+4. The server executes the procedure with the provided input parameters, performing any required computations or operations.
+
+5. The server prepares an RPC response, including any return values or output parameters.
+
+6. The server's RPC runtime library serializes the response into a network-friendly format and sends it back to the client.
+
+7. The client's RPC runtime library receives the response, deserializes it, and provides the result to the client program.
+
+8. The client program continues its execution, utilizing the response from the remote procedure call.
+
+RPC can be used to build distributed systems and facilitate communication between different components or services in a networked environment. It allows applications to invoke functionality on remote machines, making it easier to develop distributed applications and enable interoperability between different software components.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+gRPC, which stands for "Google Remote Procedure Call," is an open-source remote procedure call (RPC) framework developed by Google. It enables communication between different applications and services running on different platforms and languages by defining a contract for remote methods or procedures that can be called by clients.
+
+Here's how gRPC works:
+
+1. Protocol Buffers (protobuf): At the core of gRPC is the use of Protocol Buffers, a language-agnostic interface definition language developed by Google. It allows you to define the structure of your data and services using a concise, platform-neutral format.
+
+2. Service Definition: With gRPC, you define your services and methods in a `.proto` file using Protocol Buffers. The file describes the messages exchanged between the client and server and the remote methods that can be called. Each method specifies the request message and the response message.
+
+3. Code Generation: Once you have the `.proto` file, you can generate client and server code in your preferred language (e.g., Python, Java, Go, C++, etc.) using the gRPC compiler. The generated code includes classes or stubs that represent the services and methods defined in the `.proto` file.
+
+4. Client-Server Communication: The gRPC client and server communicate over HTTP/2, a modern and efficient binary protocol. The client sends a gRPC request message to the server, which includes the method name and any required data. The message is serialized into binary format using Protocol Buffers.
+
+5. Serialization and Deserialization: On the server side, the incoming request message is deserialized from its binary representation into an object that can be understood and processed by the server code. Similarly, the server prepares the response message and serializes it back into binary format.
+
+6. Data Transfer: The serialized request message is sent over the network from the client to the server using HTTP/2. The server receives the message and processes it based on the requested method.
+
+7. Server Processing: Once the server receives the request, it executes the corresponding method or procedure and prepares the response message. The server code can perform business logic, access databases, or interact with other services as needed.
+
+8. Response Delivery: The response message is serialized into binary format and sent back to the client over the network using HTTP/2. The client receives the response and deserializes it into an object that can be used in the client code.
+
+9. Asynchronous Streaming: gRPC supports both unary RPC (where a single request is made and a single response is received) and streaming RPC. Streaming RPC enables bidirectional communication, allowing the client and server to send and receive streams of messages asynchronously.
+
+Overall, gRPC provides a high-performance, efficient, and language-independent way of building distributed systems by leveraging Protocol Buffers for data serialization and HTTP/2 for transport. It simplifies the process of building client-server applications across different platforms and languages, making it easier to develop scalable and interoperable systems.
+
+
+https://climbtheladder.com/grpc-interview-questions/
+

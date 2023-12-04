@@ -1,0 +1,45 @@
+Lists are sequence containers that allow non-contiguous memory allocation. As compared to the vector, the list has slow traversal, but once a position has been found, insertion and deletion are quick (constant time). Normally, when we say a List, we talk about a doubly linked list. For implementing a singly linked list, we use a forward_list.
+
+
+
+
+Points to Remember about List Container
+
+It is generally implemented using a dynamic doubly linked list with traversal in both directions.
+Faster insert and delete operation as compared to arrays and vectors.
+It provides only sequential access. Random Access to any middle element is not possible
+It is defined as a template so it is able to hold any data type.
+It operates as an unsorted list would, which implies that by default, the list’s order is not preserved. However, there are techniques for sorting.
+
+
+
+Properties of SET:: 
+
+Storing order – The set stores the elements in sorted order.
+Values Characteristics – All the elements in a set have unique values.
+Values Nature – The value of the element cannot be modified once it is added to the set, though it is possible to remove and then add the modified value of that element. Thus, the values are immutable.
+Search Technique – Sets follow the Binary search tree implementation.
+Arranging order – The values in a set are unindexed.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Microservices are a software architecture pattern that structures an application as a collection of small, loosely coupled, and independently deployable services. Each service in a microservices architecture focuses on a specific business capability and operates as a separate entity.
+
+Key characteristics of microservices include:
+
+1. **Service-oriented:** Microservices are built around specific business functionalities or services. Each service is responsible for a specific set of tasks and has its own codebase, data storage, and communication mechanisms.
+
+2. **Loose coupling:** Microservices are designed to be loosely coupled, meaning they are independent and can be developed, deployed, and scaled individually without impacting other services. They communicate with each other through well-defined APIs or message passing mechanisms.
+
+3. **Independent deployability:** Microservices can be deployed independently, enabling continuous deployment and the ability to release updates or bug fixes for individual services without affecting the entire application.
+
+4. **Scalability:** Since each microservice operates independently, it can be scaled individually based on demand. This allows for better resource allocation and the ability to handle high traffic loads more effectively.
+
+5. **Technology diversity:** Microservices allow for the use of different technologies and programming languages for each service. This flexibility enables teams to choose the most suitable technology stack for each specific service.
+
+6. **Resilience:** Microservices architecture promotes fault isolation, meaning that failures in one service do not cascade to other services. This enhances overall system resilience and allows for better fault tolerance.
+
+7. **Autonomous teams:** Microservices often align with the organization of development teams, where each team is responsible for one or more microservices. This promotes autonomy, faster development cycles, and better alignment with business goals.
+
+Microservices architecture offers several benefits, including improved scalability, agility, fault tolerance, and the ability to embrace modern development practices such as DevOps and continuous delivery. However, it also introduces challenges related to service coordination, inter-service communication, and data consistency, which need to be carefully addressed.
+
+Overall, microservices architecture provides a modular and scalable approach to building complex applications by decomposing them into smaller, manageable, and independently deployable services.

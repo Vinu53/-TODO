@@ -1,0 +1,48 @@
+A computer is a programmable electronic device that accepts raw data as input and processes it with a set of instructions (a program)
+ to produce the result as output. 
+ 
+An operating system is a piece of software that manages all the resources of a computer system, 
+both hardware and software, and provides an environment in which the user can execute his/her 
+programs in a convenient and efficient manner.
+
+The World Wide Web -- also known as the web, WWW or W3 -- refers to all the public websites or pages that users can access on their local computers 
+and other devices through the internet.
+
+Client-server model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+API is the acronym for application programming interface — a software intermediary that allows two applications to talk to each other. 
+APIs are an accessible way to extract and share data within and across organizations.
+
+1) REST APIs: REST stands for Representational State Transfer. These APIs use HTTP requests to GET, PUT, POST and DELETE data.
+ REST APIs are widely used for web services and mobile applications.
+
+2) SOAP APIs: SOAP stands for Simple Object Access Protocol. These APIs use XML-based messaging to exchange data between applications. 
+SOAP APIs are commonly used in enterprise applications.
+
+3)GraphQL APIs: GraphQL is a query language that allows clients to request specific data from a server.
+ GraphQL APIs are used for applications that require complex queries and data manipulation.
+
+4) Webhooks: Webhooks allow applications to receive real-time notifications when specific events occur.
+ This type of API is commonly used in chat applications and notification services.
+
+5)  OpenAPIs: OpenAPI (formerly known as Swagger) is a specification for building APIs. 
+OpenAPIs define the format of the request and response payloads, the endpoints of the API, and the authentication methods used.
+
+6) Real-time APIs: Real-time APIs allow applications to exchange data in real-time, enabling real-time communication
+ and collaboration between applications.
+
+These are just a few examples of the different types of APIs that are available. The choice of API depends on the specific needs of the application and the data being exchanged.

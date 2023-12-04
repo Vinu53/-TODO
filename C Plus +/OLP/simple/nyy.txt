@@ -1,0 +1,182 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+class Employee{
+private:
+    string empname,equa,eadd,eemail,edes,epro,erew,edoj,edob,id;
+    float eage,epho,enol,eid,no;
+public:
+    void setemp();
+    void showemp();
+
+   virtual void assempid()=0;
+    virtual void calsal()=0;
+    virtual void asspro()=0;
+    virtual void leavebalance()=0;
+};
+void Employee::setemp(){
+    cout<<"enter employee name:";
+    cin>>empname;
+    cout<<"enter qualification:";
+    cin>>equa;
+    cout<<"enter age:";
+    cin>>eage;
+}
+
+void Employee::showemp(){
+cout<<endl<<empname<<"\t"<<equa<<"\t"<<eage;
+}
+class tcs:public Employee{
+        public:
+     string id,pro;
+     float sal=0,lb=0,perday;
+
+     void assempid(){
+        cout<<"enter emplyoee id:";
+        cin>>id;
+     }
+     void calsal(){
+     cout<<"Enter the salary ";
+
+        cin>>sal;
+     }
+     void asspro(){
+        cout<<"enter the project allocated:";
+        cin>>pro;
+     }
+     void leavebalance(){
+         cout<<"enter the leave balance:";
+         cin>>lb;
+     }
+     string find(){
+         return id;
+     }
+
+     string term(){
+        return id;
+     }
+
+     void dis(){
+        setemp();
+        assempid();
+        calsal();
+        asspro();
+        leavebalance();
+        cout<<endl;
+        }
+    void diss(){
+    showemp();
+    cout<<"\t"<<id<<"\t"<<sal<<"\t"<<pro<<"\t"<<lb;
+    }
+
+};
+/*
+class xyz:public Employee{
+    private:
+     string id,pro;
+     float sal,lb,exp;
+    public:
+     void assempid(){
+        cout<<"enter emplyoee id:";
+        cin>>id;
+     }
+     void calsal(){
+     cout<<"Enter the salary amount:";
+        cin>>sal;
+     }
+     void asspro(){
+        cout<<"enter the project domain:";
+        cin>>pro;
+     }
+     void leavebalance(){
+         cout<<"enter the leave balance:";
+         cin>>lb;
+     }
+
+      string find(){
+         return id;
+     }
+
+     string term(){
+        return id;
+     }
+     void dis(){
+        setemp();
+        assempid();
+        calsal();
+        asspro();
+        leavebalance();
+        cout<<endl;
+        }
+    void diss(){
+    showemp();
+    cout<<"\t"<<id<<"\t"<<sal<<"\t"<<pro<<"\t"<<lb;
+    }
+
+    void calexp(){
+    cout<<"enter expeince :";
+    cin>>exp;
+    cout<<"the experince is :"<<exp;
+    }
+
+}; */
+
+int main(){
+    int flag=0;
+    tcs e[3];
+    for(int i=0;i<=1;i++)
+        e[i].dis();
+    for(int i=0;i<=1;i++)
+        e[i].diss();
+    string findit,ter;
+    cout<<endl;
+    cout<<"enter employee id  whose details u want to print:";
+    cin>>findit;
+    for(int i=0;i<=1;i++){
+        if(e[i].find()==findit)
+            flag=1;}
+            
+    if (flag==1)
+        for(int i=0;i<=1;i++)
+        else
+            {cout<<"This emplyoee id does not eist:";}}
+    cout<<endl;
+    cout<<"enter employee id whom u want to terminate:";
+    cin>>ter;
+    for(int i=0;i<=1;i++){
+        if (e[i].term()==ter)
+            continue;
+        else
+            e[i].showemp();
+
+
+
+    }
+
+/*
+    tcs e[3];
+    for(int i=0;i<=2;i++)
+        e[i].dis();
+    for(int i=0;i<=2;i++)
+        e[i].diss();
+    string findit,ter;
+    cout<<endl;
+    cout<<"enter employee id  whose details u want to print:";
+    cin>>findit;
+    for(int i=0;i<=2;i++)
+        if(e[i].find()==findit)
+            e[i].showemp();
+    cout<<endl;
+    cout<<"enter employee id whom u want to terminate:";
+    cin>>ter;
+    for(int i=0;i<=2;i++){
+        if (e[i].term()==ter)
+            break;
+        else
+            e[i].showemp();
+
+    } */
+
+
+
+}

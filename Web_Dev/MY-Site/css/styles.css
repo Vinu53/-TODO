@@ -1,0 +1,125 @@
+body{
+  margin: 0;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  color: #40514E;
+}
+hr{
+  width:10%;
+  border-style:dotted;
+  border-width:10px 0 0 0;
+  border-color:#EAF6F6;
+  margin:100px auto;
+}
+
+h1{
+  /*font-size: 90px;
+  to get 90px interms of percentage, that is dynamically adjustable to all browsers, we do
+  16px - bt default the total lenght
+  90px   - desired size so
+  90/16 = 562.5%
+  Also,  16px == 100% == 1 em
+  The sizes mentioned with %, em are dynamically va lues , that changw with respect to browsers
+  the one mentioned with px , is statucally value , thta remains constant throught the webpages
+  */
+  font-size: 5.625rem;  /* rem is used in css 3, which overrides the exisitng definition*/
+  margin: 50px auto 0 auto;
+  padding-top: 100px;
+  font-family: 'Sacramento', cursive;
+  color:#66BFBF;
+}
+h2{
+    padding-top: 20px;
+    font-family: 'Merriweather', serif;
+    font-size: 2.5rem;  /* equals to 40px i.e. 40px/16px = 2.5rem*/
+    color:#66BFBF;
+    font-weight: normal;
+}
+h3{
+    color:#66BFBF;
+    font-family: 'Merriweather', serif;
+}
+.top-container{
+  background-color:#B8FFF9;
+  position: relative;
+}
+.middle-container{
+  margin: 100px 0;
+}
+/* .middle-container{
+  /*margin-left: 200px;
+  width:200px;
+  height: 200px;
+  background-color: red;
+}
+.bottom{
+  width:200px;
+  height:200px;
+  background-color: blue;
+} */
+.eng{
+  text-decoration: underline;
+}
+.top-image{
+  position: absolute;
+  left:1000px;
+}
+.bottom-image{
+  position: absolute;
+  right:1000px;
+}
+.skill-row{
+  width:50%;
+  margin:100px auto 100px auto; /* just use margin to center the image */
+  text-align: left;
+}
+.f-skill{
+  float:left;
+  width:25%;
+  margin-right: 30px;
+}
+.s-skill{
+  float:right;
+  width: 25%;
+  margin-left: 30px;
+}
+.bottom-container{
+  background-color: #66BFBF;
+  padding: 50px 0 20px;
+}
+a{
+  color:#11999E;
+  margin: 10px 20px;
+  text-decoration: none;
+  font-family: 'Merriweather', serif;
+}
+a:hover{
+  color:red;
+}
+
+.btn {
+  background: #11cdd4;
+  background-image: -webkit-linear-gradient(top, #11cdd4, #1199e);
+  background-image: -moz-linear-gradient(top, #11cdd4, #1199e);
+  background-image: -ms-linear-gradient(top, #11cdd4, #1199e);
+  background-image: -o-linear-gradient(top, #11cdd4, #1199e);
+  background-image: linear-gradient(to bottom, #11cdd4, #1199e);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  font-family: 'Merriweather', serif;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #30e3cb;
+  background-image: -webkit-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: -moz-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: -ms-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: -o-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: linear-gradient(to bottom, #30e3cb, #2bc4ad);
+  text-decoration: none;
+}

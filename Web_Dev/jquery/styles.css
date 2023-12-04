@@ -1,0 +1,19 @@
+body{
+  background-color: white;
+}
+
+.big-text{
+  text-align: center;
+  font-size:10rem;
+  font-style: italic;
+}
+
+h1{
+  text-align:center;
+  color : purple;
+  margin :50px;
+  font-size:7rem;
+}
+.margin-big{
+  margin: 50px;
+}

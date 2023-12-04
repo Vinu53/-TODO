@@ -1,0 +1,76 @@
+https://www.youtube.com/watch?v=CpjVucvAc3g&list=PL2_aWCzGMAwLZp6LMUKI3cc7pgGsasm2_&index=7
+
+// C++ Program to demonstrate working of
+// function using pointers
+#include <iostream>
+using namespace std;
+
+int fun(int *ptr)
+{
+    *ptr = 100;
+    return *ptr;
+}
+
+void fun(int* ptr, int sec) 
+
+{  
+        int a = *ptr;
+       
+        cout<<  fun(&a)+sec;
+    
+}
+
+int main()
+{
+	int x = 20;
+	fun(&x, 10);
+	//cout << "x = " << x;
+
+	return 0;
+}
+
+2//
+// Program 2
+#include <iostream>
+using namespace std;
+void fun(int* arr)
+{
+	int i;
+//Consider the size of pointer as 8 bytes
+//	unsigned int n = sizeof(arr) / sizeof(arr[0]);
+   int n = 6;
+	for (i = 0; i < n; i++)
+		cout << " " << arr[i]+1;
+}
+
+// Driver program
+int main()
+{
+	int arr[] = { 1, 23, 03, 94, 56555, 986, 7, 8 };
+	fun(arr);
+	int *pt = arr;
+	cout<<endl;
+	cout<<*pt*2;
+	return 0;
+}
+
+3//// Program 3
+#include <iostream>
+#include <string.h>
+using namespace std;
+void fun(char* arr)
+{
+	int i;
+	unsigned int n = strlen(arr);
+	cout << "n = " << n << endl;
+	for (i = 0; i < n; i++)
+		cout << arr[i] << " ";
+}
+
+// Driver program
+int main()
+{
+	char arr[] = "geeksqu iz";
+	fun(arr);
+	return 0;
+}
